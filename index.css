@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Gothic+A1:wght@100;200;300;400;500;600;700;800&display=swap');
+
+html,
+body {
+    margin: 0;
+}
+
+.gothic {
+    font-family: 'Gothic A1', sans-serif;
+}
+
+#hero {
+    font-family: 'Gloock', serif;
+    font-size: 70px;
+    font-weight: 100;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#subhero {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+body {
+    background-color: #f7f4ed;
+}
+
+.widthed {
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+
+    position: relative;
+}
+
+#navbar {
+    border-bottom: 1px solid black;
+
+    padding: 13px 0 5px 0;
+}
+
+#items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#items a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#items a:last-child {
+    padding: 11px 20px;
+    background: black;
+    color: white;
+    border-radius: 50px;
+}
+
+#heroimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0.5;
+
+    z-index: -1;
+}
+
+#hero-container {
+    text-align: right;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 247px);
+    box-sizing: border-box;
+    padding-top: 47px;
+    display: flex;
+}
+
+button {
+    padding: 13px 36px;
+    background: black;
+    font-size: 20px;
+    color: white;
+    border: none;
+    border-radius: 50px;
+}
+
+#sponsors {
+    background: rgb(36, 36, 36);
+}
+
+#sponsors h2 {
+    text-align: center;
+
+    margin: 0;
+    padding-top: 30px;
+
+    color: white;
+
+    font-weight: 800;
+}
+
+#sponsors #images {
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    justify-content: center;
+}
+
+#sponsors #images img {
+    margin: 0 20px;
+
+    filter: grayscale(1);
+    transition: 0.5s;
+}
+
+#sponsors #images a:hover img {
+    filter: grayscale(0);
+}
+
+#why {
+    min-height: 250vh;
+    box-sizing: border-box;
+}
+
+#why #left,
+#why #right {
+    position: sticky;
+    top: 0px;
+
+    align-self: flex-start;
+
+    min-height: 100vh;
+}
+
+#why #left {
+    flex: 0 0 60%;
+}
+
+#why #right {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gothic A1';
+    font-weight: bold;
+}
+
+#why h1,
+#stats h1 {
+    font-family: 'Gloock';
+    font-size: 60px;
+    margin-top: 90px;
+}
+
+#why>.widthed {
+    display: flex;
+
+    height: 500vh;
+}
+
+#why .reason {
+    font-family: 'Gothic A1', sans-serif;
+
+    border-radius: 7px;
+
+    padding: 0 25px;
+
+    transition: 0.25s;
+
+    opacity: 0.6;
+
+}
+
+#why .reason .progress {
+    height: 5px;
+    background: #b7b5b0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+#why .reason .progress>.inner {
+    background: rgb(36, 36, 36);
+    width: 0%;
+    height: 100%;
+    max-width: 100%;
+}
+
+#why .reason h2 {
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+#why .reason p {
+    margin-top: 5px;
+    display: none;
+    margin-bottom: 0;
+}
+
+#why .reason.active {
+    opacity: 1;
+    padding: 3px 25px;
+
+    transition: 0.5s;
+}
+
+#why .reason.active .progress {
+    opacity: 1;
+}
+
+#why .reason.active h2 {
+    font-weight: bold;
+}
+
+#stats {
+    min-height: 100vh;
+    background: rgb(36, 36, 36);
+
+    height: 1px;
+}
+
+#stats .widthed {
+    height: 100%;
+    overflow: auto;
+}
+
+#stats h1 {
+    color: white;
+}
+
+#stats .stats-list {
+    display: flex;
+    gap: 10vw;
+
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+
+#stats .stats-list .stat {
+    font-family: 'Gothic A1';
+    color: white;
+}
+
+
+#stats .stats-list .stat .number {
+    font-size: 80px;
+}
+
+#stats .stats-list .stat>p {
+    margin: 0;
+    text-align: right;
+    padding-right: 35px;
+}
+
+#cta {
+    padding: 50px 0;
+    text-align: center;
+    font-family: 'Gothic A1';
+}
+
+#cta h1 {
+    font-family: 'Gloock';
+}
+
+#footer {
+    background: rgb(36, 36, 36);
+    color: white;
+    padding: 50px 0;
+    font-family: 'Gothic A1';
+}
+
+#footer a {
+    color: white;
+}
+
+#footer>.widthed {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#footer a[target="_blank"]::after {
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+    margin: 0 3px 0 5px;
+    filter: invert(1);
+}

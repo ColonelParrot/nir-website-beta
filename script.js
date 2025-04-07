@@ -43,7 +43,7 @@ function scrollHandler() {
                     toShowImage.fadeIn(250);
                 })
             }
-        }, 300)
+        }, 100)
 
         $('#why .reason').find('.inner').css('width', `${scrollPercentage * 100}%`);
         if (activeIndex != itemIndex) {
@@ -69,3 +69,16 @@ document.addEventListener('aos:in:downloads', ({ detail }) => {
 document.addEventListener('aos:in:citations', ({ detail }) => {
     new CountUp('stat-citations', 30).start();
 });
+
+$('#citation').click(function () {
+    $(this).toggleClass('open')
+    $('#citation-content').toggle()
+})
+
+$('#copy').click(function () {
+    navigator.clipboard.writeText($('#citation-content pre').text()).then(function () {
+        $('#copy').text('copied!')
+    }, function (err) {
+        alert('An error occurred. You will have to manually copy the text.');
+    });
+})

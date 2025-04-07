@@ -140,6 +140,8 @@ button {
 
 #why #left {
     flex: 0 0 60%;
+
+    margin-right: 20px;
 }
 
 #why #right {
@@ -153,6 +155,10 @@ button {
 
 #why #right .scroll-image{
     display: none;
+}
+
+#why #right .scroll-image img{
+    width: 100%;
 }
 
 #why h1,
@@ -311,4 +317,36 @@ button {
     content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
     margin: 0 3px 0 5px;
     filter: invert(1);
+}
+
+#citation{
+    margin-top: 30px;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#citation:after  {
+    content: "\203A";
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 10px;
+    transform: rotate(90deg);
+    vertical-align: middle;
+}
+
+#citation.open:after{
+    transform:rotate(-90deg);
+}
+
+#citation-content{
+    text-align: left;
+}
+
+#citation-content pre{
+    overflow: auto;
+}
+
+#copy{
+    font-size: 12px;
 }

@@ -6,9 +6,9 @@ const divHeight = div.offsetHeight - window.innerHeight;
 const divTop = div.offsetTop;
 
 let activeIndex = 0;
-let prevTimeout;
+let scrollStopTimeout;
 
-window.addEventListener('scroll', function () {
+function scrollHandler() {
     const scrollPosition = window.scrollY;
 
     if (scrollPosition >= divTop) {
@@ -35,6 +35,16 @@ window.addEventListener('scroll', function () {
             scrollPercentage = percentageScrolled / 0.2;
         }
 
+        clearTimeout(scrollStopTimeout)
+        scrollStopTimeout = setTimeout(function () {
+            const toShowImage = $('#why .scroll-image').eq(itemIndex)
+            if (!toShowImage.is(':visible')) {
+                $('#why .scroll-image').filter(':visible').fadeOut(250, function () {
+                    toShowImage.fadeIn(250);
+                })
+            }
+        }, 300)
+
         $('#why .reason').find('.inner').css('width', `${scrollPercentage * 100}%`);
         if (activeIndex != itemIndex) {
             activeIndex = itemIndex;
@@ -42,7 +52,10 @@ window.addEventListener('scroll', function () {
             $('#why .reason').eq(itemIndex).addClass('active').find('p').slideDown();
         }
     }
-});
+}
+
+window.addEventListener('scroll', scrollHandler);
+scrollHandler()
 
 AOS.init({
     startEvent: 'load',

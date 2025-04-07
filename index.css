@@ -151,6 +151,10 @@ button {
     font-weight: bold;
 }
 
+#why #right .scroll-image{
+    display: none;
+}
+
 #why h1,
 #stats h1 {
     font-family: 'Gloock';
@@ -224,11 +228,27 @@ button {
     background: rgb(36, 36, 36);
 
     height: 1px;
+
+    position: relative;
+}
+
+#stats #bg {
+    height: 100%;
+    width: 100%;
+    background-image: url("assets/stage.png");
+    background-size: cover;
+    background-position: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0.1;
 }
 
 #stats .widthed {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 #stats h1 {

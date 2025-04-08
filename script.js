@@ -8,6 +8,15 @@ const divTop = div.offsetTop;
 let activeIndex = 0;
 let scrollStopTimeout;
 
+$('#why .reason h2').click(function () {
+    const section = $(this).closest('.reason');
+    const index = section.index() - 0.8; // prevent rounding errors w/ 1.0
+    const sectionTop = divTop + (divHeight * (index / 5));
+    $('html, body').animate({
+        scrollTop: sectionTop
+    }, 500);
+})
+
 function scrollHandler() {
     const scrollPosition = window.scrollY;
 
@@ -35,15 +44,9 @@ function scrollHandler() {
             scrollPercentage = percentageScrolled / 0.2;
         }
 
-        clearTimeout(scrollStopTimeout)
-        scrollStopTimeout = setTimeout(function () {
-            const toShowImage = $('#why .scroll-image').eq(itemIndex)
-            if (!toShowImage.is(':visible')) {
-                $('#why .scroll-image').filter(':visible').fadeOut(250, function () {
-                    toShowImage.fadeIn(250);
-                })
-            }
-        }, 100)
+        $('#why .scroll-image').removeClass('active')
+        const toShowImage = $('#why .scroll-image').eq(itemIndex)
+        toShowImage.addClass('active')
 
         $('#why .reason').find('.inner').css('width', `${scrollPercentage * 100}%`);
         if (activeIndex != itemIndex) {

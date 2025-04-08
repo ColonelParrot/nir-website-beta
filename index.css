@@ -53,7 +53,7 @@ body {
     margin: 0 10px;
 }
 
-#items a:last-child {
+#items #last a:last-child {
     padding: 11px 20px;
     background: black;
     color: white;
@@ -68,6 +68,8 @@ body {
     opacity: 0.5;
 
     z-index: -1;
+
+    max-width: 100%;
 }
 
 #hero-container {
@@ -110,11 +112,12 @@ button {
     padding-bottom: 30px;
 
     justify-content: center;
+
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 #sponsors #images img {
-    margin: 0 20px;
-
     filter: grayscale(1);
     transition: 0.5s;
 }
@@ -154,7 +157,14 @@ button {
 }
 
 #why #right .scroll-image{
-    display: none;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#why #right .scroll-image.active{
+    position: static;
+    opacity: 1;
 }
 
 #why #right .scroll-image img{
@@ -184,7 +194,6 @@ button {
     transition: 0.25s;
 
     opacity: 0.6;
-
 }
 
 #why .reason .progress {
@@ -206,6 +215,8 @@ button {
 #why .reason h2 {
     margin-bottom: 0;
     font-size: 20px;
+
+    cursor: pointer;
 }
 
 #why .reason p {
@@ -268,6 +279,9 @@ button {
     position: absolute;
     bottom: 10%;
     right: 10%;
+
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 #stats .stats-list .stat {
@@ -313,10 +327,14 @@ button {
     flex-wrap: wrap;
 }
 
-#footer a[target="_blank"]::after {
+#footer a.blank::after{
+    filter: invert(1);
+}
+
+a.blank::after {
     content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
     margin: 0 3px 0 5px;
-    filter: invert(1);
+    display: inline-block;
 }
 
 #citation{
@@ -350,3 +368,59 @@ button {
 #copy{
     font-size: 12px;
 }
+
+
+/* mobile responsiveness styling */
+
+#menu-toggle{
+    display: none;
+}
+
+@media (max-width: 800px) {
+    #navbar a.desktop{
+        display: none;
+    }
+
+    #navbar #menu-toggle{
+        display: block;
+    }
+
+    #heroimg{
+        opacity: 0.25;
+    }
+
+    #hero-container #hero{
+        font-size: 50px;
+    }
+
+    #hero-container #subhero{
+        font-size: 25px;
+    }
+
+    #stats .stats-list .stat .number  {
+        font-size: 50px;
+    }
+
+    #stats h1{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 560px){
+    #hero-container #hero{
+        font-size: 40px;
+    }
+
+    #sponsors #images{
+        gap: 20px;
+    }
+
+    #sponsors #images img{
+        height: 30px;
+    }
+
+    #why h1{
+        font-size: 40px;
+        margin-top: 40px;
+    }
+} 
